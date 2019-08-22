@@ -2,6 +2,7 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
+var routes = require("./routes");
 
 
 var PORT = 3000;
@@ -21,6 +22,7 @@ app.use(express.static("public"));
 // Connect Handlebars to our Express app
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/ScrapeDB", { useNewUrlParser: true });

@@ -1,8 +1,9 @@
 <div class="container">
+    <h4><a class="scrapenews">Scrape Button</a></h4>
     {{#each articles}}
-    <div data-id="{{this._id}} class="card">
+    <div data-id="{{this._id}}" class="card">
         <div class="card-header">
-            <h3><a class="article-link" target ="_black" href={{this.link}}>{{this.title}</a>}</h3>
+            <h3><a class="article-link" target ="_black" href={{this.link}}>{{this.title}}</a></h3>
             <a class="btn btn-success save">Save Article</a>
         </div>
 
@@ -10,7 +11,7 @@
     {{/each}}
     {{#unless articles.length}}
         <div class="card-header">
-            <h3>No aritcles yet</h3>
+            <h3>No articles yet</h3>
         </div>
     {{/unless}}
 

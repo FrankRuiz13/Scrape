@@ -6,6 +6,7 @@ var scrape = function(){
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(response.data);
         var articles = [];
+        console.log("scrape function")
         // Now, we grab every h2 within an article tag, and do the following:
         $("article h2").each(function(i, element) {
           // Save an empty result object
@@ -18,6 +19,7 @@ var scrape = function(){
           result.link = $(this)
             .children("a")
             .attr("href");
+            console.log("result" + result)
             articles.push(result);
         })
         

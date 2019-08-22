@@ -4,6 +4,7 @@ var db = require("../../models");
 router.get("/", function(req, res){
     db.Headline.find({saved: false})
     .then(function(dbArticles){
+        console.log(dbArticles)
         res.render("home", {articles: dbArticles});
     })
 })

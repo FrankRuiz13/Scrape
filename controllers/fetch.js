@@ -1,9 +1,10 @@
 var db = require("../models");
-var scape = require("../scripts/scrape");
+var scrape = require("../scripts/scrape");
 
 module.exports = {
     scrapeHeadlines: function(req, res){
-        return scape().then(function(articles){
+        return scrape().then(function(articles){
+            console.log("articles: " + articles)
             return db.Headline.create(articles);
         }).then(function(dbArticles){
             if(dbArticles.length == 0){
