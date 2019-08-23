@@ -4,7 +4,7 @@ var scrape = require("../scripts/scrape");
 module.exports = {
     scrapeHeadlines: function(req, res){
         return scrape().then(function(articles){
-            console.log("articles: " + articles)
+            console.log("articles: " + JSON.stringify(articles))
             return db.Headline.create(articles);
         }).then(function(dbArticles){
             if(dbArticles.length == 0){
